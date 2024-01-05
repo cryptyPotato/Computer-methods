@@ -73,16 +73,16 @@ def polint(xarr,yarr,xx,n):
 # title("Error in interpolation")
 # legend(["Actual error","Error Est"])
 # show()
-xarr = linspace(0,1,30)
-yarr = sin(xarr*xarr+xarr)
-xx = linspace(-0.5,1.5,200)
-y0 = sin(xx*xx+xx)
 act_err=[]
 est_err=[]
 N = []
 print("yes")
-for n in range(3,21):
-    z=polint(xarr,yarr,xx,n)
+for n in range(3,100):
+    xarr = linspace(0,10,n)
+    yarr = sin(3*xarr)
+    xx = linspace(0,10,1000)
+    y0 = sin(3*xx)
+    z=polint(xarr,yarr,xx,n-1)
     yy=z[0];dyy=z[1]
     act_err+=[max(abs(yy-y0))]
     est_err+=[max(abs(dyy))]
